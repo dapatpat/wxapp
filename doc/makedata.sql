@@ -8,15 +8,15 @@ insert into Article values("7","ArticleName7","7777-77-77","7","7","ArticleAutho
 insert into Article values("8","ArticleName8","8888-88-88","8","8","ArticleAuthor8","ArticleDetail8","ArticleIntroduc8","ArticleRemark8","8","8888-88-88","8888-88-88");
 insert into Article values("9","ArticleName9","9999-99-99","9","9","ArticleAuthor9","ArticleDetail9","ArticleIntroduc9","ArticleRemark9","9","9999-99-99","9999-99-99");
 
-insert into Good values("1","1","GoodTypeName1","GoodSaleType1","食品","GoodName1","GoodSubtitle1","GoodCharac1","GoodIntroduct1","GoodOrigiPrice1","GoodSaleCount1","1","1","GoodDetail1","1","1","1","1","GoodRemark1","1");
-insert into Good values("2","2","GoodTypeName2","GoodSaleType1","食品","GoodName2","GoodSubtitle2","GoodCharac2","GoodIntroduct2","GoodOrigiPrice2","GoodSaleCount2","2","2","GoodDetail2","2","2","2","2","GoodRemark2","2");
-insert into Good values("3","3","GoodTypeName3","GoodSaleType2","生活用品","GoodName3","GoodSubtitle3","GoodCharac3","GoodIntroduct3","GoodOrigiPrice3","GoodSaleCount3","3","3","GoodDetail3","3","3","3","3","GoodRemark3","3");
-insert into Good values("4","4","GoodTypeName4","GoodSaleType2","生活用品","GoodName4","GoodSubtitle4","GoodCharac4","GoodIntroduct4","GoodOrigiPrice4","GoodSaleCount4","4","4","GoodDetail4","4","4","4","4","GoodRemark4","4");
-insert into Good values("5","5","GoodTypeName5","GoodSaleType3","工具","GoodName5","GoodSubtitle5","GoodCharac5","GoodIntroduct5","GoodOrigiPrice5","GoodSaleCount5","5","5","GoodDetail5","5","5","5","5","GoodRemark5","5");
-insert into Good values("6","6","GoodTypeName6","GoodSaleType3","工具","GoodName6","GoodSubtitle6","GoodCharac6","GoodIntroduct6","GoodOrigiPrice6","GoodSaleCount6","6","6","GoodDetail6","6","6","6","6","GoodRemark6","6");
-insert into Good values("7","7","GoodTypeName7","GoodSaleType4","服务类商品","GoodName7","GoodSubtitle7","GoodCharac7","GoodIntroduct7","GoodOrigiPrice7","GoodSaleCount7","7","7","GoodDetail7","7","7","7","7","GoodRemark7","7");
-insert into Good values("8","8","GoodTypeName8","GoodSaleType5","服务类商品","GoodName8","GoodSubtitle8","GoodCharac8","GoodIntroduct8","GoodOrigiPrice8","GoodSaleCount8","8","8","GoodDetail8","8","8","8","8","GoodRemark8","8");
-insert into Good values("9","9","GoodTypeName9","GoodSaleType6","食品","GoodName9","GoodSubtitle9","GoodCharac9","GoodIntroduct9","GoodOrigiPrice9","GoodSaleCount9","9","9","GoodDetail9","9","9","9","9","GoodRemark9","9");
+insert into Good values("1","1","食品","GoodSaleType1","食品","辣条","GoodSubtitle1","GoodCharac1","GoodIntroduct1","GoodOrigiPrice1","GoodSaleCount1","1","1","GoodDetail1","1","1","1","1","GoodRemark1","1");
+insert into Good values("2","2","食品","GoodSaleType1","食品","薯条","GoodSubtitle2","GoodCharac2","GoodIntroduct2","GoodOrigiPrice2","GoodSaleCount2","2","2","GoodDetail2","2","2","2","2","GoodRemark2","2");
+insert into Good values("3","3","生活用品","GoodSaleType2","生活用品","沐浴露","GoodSubtitle3","GoodCharac3","GoodIntroduct3","GoodOrigiPrice3","GoodSaleCount3","3","3","GoodDetail3","3","3","3","3","GoodRemark3","3");
+insert into Good values("4","4","生活用品","GoodSaleType2","生活用品","洗发水","GoodSubtitle4","GoodCharac4","GoodIntroduct4","GoodOrigiPrice4","GoodSaleCount4","4","4","GoodDetail4","4","4","4","4","GoodRemark4","4");
+insert into Good values("5","5","工具","GoodSaleType3","工具","螺丝刀","GoodSubtitle5","GoodCharac5","GoodIntroduct5","GoodOrigiPrice5","GoodSaleCount5","5","5","GoodDetail5","5","5","5","5","GoodRemark5","5");
+insert into Good values("6","6","工具","GoodSaleType3","工具","菜刀","GoodSubtitle6","GoodCharac6","GoodIntroduct6","GoodOrigiPrice6","GoodSaleCount6","6","6","GoodDetail6","6","6","6","6","GoodRemark6","6");
+insert into Good values("7","7","服务类商品","GoodSaleType4","服务类商品","送货上门","GoodSubtitle7","GoodCharac7","GoodIntroduct7","GoodOrigiPrice7","GoodSaleCount7","7","7","GoodDetail7","7","7","7","7","GoodRemark7","7");
+insert into Good values("8","8","服务类商品","GoodSaleType5","服务类商品","代客泊车","GoodSubtitle8","GoodCharac8","GoodIntroduct8","GoodOrigiPrice8","GoodSaleCount8","8","8","GoodDetail8","8","8","8","8","GoodRemark8","8");
+insert into Good values("9","9","食品","GoodSaleType6","食品","鱼皮","GoodSubtitle9","GoodCharac9","GoodIntroduct9","GoodOrigiPrice9","GoodSaleCount9","9","9","GoodDetail9","9","9","9","9","GoodRemark9","9");
 
 insert into swiper values(1,"SwiperUrl1","1","SwiperTypeName1","SwiperIsFlat1","SwiperCreateTime1");
 insert into swiper values(2,"SwiperUrl2","2","SwiperTypeName2","SwiperIsFlat1","SwiperCreateTime2");
