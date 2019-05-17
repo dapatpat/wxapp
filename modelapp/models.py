@@ -32,7 +32,7 @@ class Article(models.Model):
 
     class Meta:
         db_table = 'Article'
-
+        
 
 class Province(models.Model):
     ProvinceID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
@@ -312,3 +312,5 @@ class Dict(models.Model):
 
     class Meta:
         db_table = 'Dict'
+
+

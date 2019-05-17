@@ -29,6 +29,6 @@ from modelapp.models import *
 # admin.site.register(province)
 # admin.site.register(say)
 # admin.site.register(shop)
-# admin.site.register(swiper)
+admin.site.register(Swiper)
 # admin.site.register(user)
 # admin.site.register(vip)
