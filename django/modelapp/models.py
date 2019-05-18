@@ -3,7 +3,7 @@ from django.db import models
 
 class PageConfig(models.Model):
     ConfigID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
-    ConfigDataType = models.IntegerField(null=True)  # 数据分类  (如 分类：1 数组 )
+    ConfigDataType = models.IntegerField(null=True,verbose_name='数据分类')  # 数据分类  (如 分类：1 数组 )
     ConfigType = models.IntegerField(null=True)  # 字典分类  (如 分类：1 )
     ConfigTypeNmae = models.CharField(max_length=120, null=True)  # 字典分类的名字  (如 分类名字：首页 )
     ConfigKeyNo = models.IntegerField(null=True)  # KeyID：1
@@ -14,6 +14,8 @@ class PageConfig(models.Model):
 
     class Meta:
         db_table = 'myapp_pageconfig'
+        # verbose_name = '配置表s'
+        verbose_name_plural = '配置表'
 
 
 class Article(models.Model):

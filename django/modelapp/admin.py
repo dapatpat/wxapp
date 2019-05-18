@@ -2,6 +2,11 @@ from django.contrib import admin
 from modelapp.models import *
 # Register your models here.
 
+class MyConfig(admin.ModelAdmin):
+    # 需要显示的字段信息
+    list_display = ("ConfigID","ConfigDataType","ConfigType","ConfigTypeNmae","ConfigKeyNo",
+                            "ConfigKeyName","ConfigKeyValue","ConfigFlag","ConfigCreatTime")
+
 # admin.site.register(article)
 # admin.site.register(auth_group)
 # admin.site.register(auth_group_permissions)
@@ -22,7 +27,7 @@ from modelapp.models import *
 # admin.site.register(goodurl)
 # admin.site.register(guest)
 # admin.site.register(guestreceaddress)
-# admin.site.register(modelapp_pageconfig)
+admin.site.register(PageConfig, MyConfig)
 # admin.site.register(order)
 # admin.site.register(orderdetail)
 # admin.site.register(orderstatus)
