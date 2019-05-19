@@ -1,4 +1,5 @@
 <view>
+</view>
   <view class='wt1'>
     <swiper autoplay='true'>
       <block wx:for="{{imgUrls}}">

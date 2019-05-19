@@ -1,5 +1,5 @@
 <view>
-
+</view>
   <!------------------------------------- 头部区域 ------------------------------->
   <view class='mineHead' style='background-color:{{pageStyle.MineInfoBackColor}};box-shadow:{{pageStyle.MineInfoBoxShadow}}'>
     <view class='flex mineHeadTop'>
