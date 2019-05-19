@@ -1,0 +1,72 @@
+<!--pages/select/select.wxml-->
+<view>
+  <view class='goods rela '>
+    <view class='flex' style=''>
+      <view class='goodsImg'>
+        <image src='{{imgUrls[0]}}' class='wt1 ht1'></image>
+      </view>
+      <view class='goodsDetail flex'>
+        <view style='color:{{pageStyle.SelectShopNameColor}}'>三毛的流浪记</view>
+        <view class='fz28' style='color:{{pageStyle.SelectShopTelColor}}'>电话：一句话介绍xxxx</view>
+        <view class='fz28' style='color:{{pageStyle.SelectShopIntroColor}}'>简介：一句话介绍xxxx</view>
+        <view class='fz28' style='color:{{pageStyle.SelectShopAddressColor}}'>地址：广东省广州市天河区高塘路xxx大厦</view>
+      </view>
+    </view>
+  </view>
+  <!-- 跑马灯 -->
+  <view class='rela flex mess' style='background-color:{{pageStyle.SelectHorseBackColor}}'>
+    <view class='mess-img rela'>
+      <image src='{{pageStyle.SelectHorseUrl}}' class='wt1 ht1 border50'></image>
+    </view>
+    <view class='messText fz26'>
+      <swiper autoplay='true' vertical='true'>
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <text style='color:{{pageStyle.SelectHorseColor}}'>{{item}}</text>
+          </swiper-item>
+        </block>
+      </swiper>
+      <slider style='opacity:0;height:1px' bindchange="durationChange" show-value min="1000" max="10000" />
+    </view>
+  </view>
+
+  <!------------------------------------------------   商品栏目(下半区域)  -------------------------------------->
+  <view class='flex select'>
+    <view class="section tcent">
+      <scroll-view scroll-y='true' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" style='display:inline-block'>
+        <block wx:for="{{SelectCol}}" wx:key='{{index}}'>
+          <view bindtap='changeSelectedCol' id='{{index}}'>
+            <block wx:if='{{index == SelectedCol}}'>
+              <view class='selectCol ' style="color:{{item.SelectColNameColor}};border-bottom:{{item.SelectColBorderBottom}} {{item.SelectColBorderBottomColor}} solid; border-left:{{item.SelectColBorderLeft}} {{item.SelectColBorderLeftColor}} solid;border-right:{{item.SelectColBorderRight}} {{item.SelectColBorderRightColor}} solid;background-color:{{item.SelectColBackColor}}" id='{{index}}' data-selected='{{index}}'>{{item.SelectColName}} </view>
+            </block>
+            <block wx:else>
+              <view class='selectCol ' style="color:{{item.UnSelectColNameColor}};border-bottom:{{item.UnSelectColBorderBottom}} {{item.UnSelectColBorderBottomColor}} solid; border-left:{{item.UnSelectColBorderLeft}} {{item.UnSelectColBorderLeftColor}} solid;border-right:{{item.UnSelectColBorderRight}} {{item.UnSelectColBorderRightColor}} solid;background-color:{{item.UnSelectColBackColor}}" id='{{index}}' data-selected='{{index}}'>{{item.SelectColName}} </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <!--------------------------------------   商品栏目(下右半区域)  -------------------------------------->
+    <view class='selecDetail'>
+      <view class='goods rela ' wx:for='{{goodsItems[SelectedCol]}}'>
+        <view class='flex' style='' bindtap='goToGoodDT'>
+          <view class='goodsImg selectGoodImg'>
+            <image src='{{item.imgUrls}}' class='wt1 ht1'></image>
+          </view>
+          <view class='goodsDetail flex'>
+            <view style='color:{{pageStyle.SelectGoodNameColor}}'>{{item.goosName}}</view>
+            <view class='fz28' style='color:{{pageStyle.SelectGoodIntroColor}}'>电话：一句话介绍xxxx</view>
+            <view class='fz28' style='color:{{pageStyle.SelectGoodPriceColor}}'>价格：￥ 99.00</view>
+            <view class='fz28 flex' style='color:{{pageStyle.SelectGoodLikeColor}}'>
+              <view>点赞：999</view>
+              <view>点赞：999</view>
+              <view>点赞：999</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

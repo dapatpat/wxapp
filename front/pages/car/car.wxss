@@ -1,0 +1,75 @@
+/* pages/car/car.wxss */
+@import "../../common.wxss";
+.choiceLeft{
+  width: 10%;
+
+}
+.choiceLeft image{
+  top: 50%;
+  margin-left: 26rpx;
+  margin-top: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.choiceRight{
+  flex-grow: 1
+}
+.selecDetail {
+  flex-grow: 1;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.goods {
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+}
+
+.goodsImg {
+  width: 250rpx;
+  height: 250rpx;
+  margin-right: 20rpx;
+}
+
+.selectGoodImg{
+  height: 180rpx;
+  width: 150rpx;
+}
+
+.goodsDetail {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.carItems{
+  margin-top: 26rpx;
+  margin-bottom: 26rpx
+}
+.carCount{
+  justify-content: space-around;
+}
+
+/************************************ 底部结算兰 ***************************************/
+.carBottom{
+  background-color: #ccc;
+  justify-content: space-around;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: fixed
+}
+.carBottomImg{
+  width: 50rpx;
+  height: 50rpx;
+  opacity: 1;
+  position: relative;
+  z-index: 2
+}
+.carBottomImg{
+  margin-left: 20rpx;
+  position: relative;
+  top: 50%;
+  margin-top: -25rpx;
+}

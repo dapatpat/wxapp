@@ -1,0 +1,48 @@
+<view>
+  <view class=' select'>
+    <!--------------------------------------   导航区  -------------------------------------->
+    <view class="section tcent wt1">
+      <scroll-view scroll-x='true' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" style=' white-space: nowrap; display: flex'>
+        <block wx:for="{{Article}}" wx:key='{{index}}'>
+          <view bindtap='changeSelectedCol' id='{{index}}' >
+            <block wx:if='{{index == SelectedCol}}'>
+              <view class='selectCol ' id='{{index}}' data-selected='{{index}}'
+              style="color:{{item.ArticleColNameColor}};border-bottom:{{item.ArticleColBorderBottom}} {{item.ArticleColBorderBottomColor}} solid" >{{item.ArticleColName}} </view>
+            </block>
+            <block wx:else>
+              <view class='selectCol '  id='{{index}}' data-selected='{{index}}'
+              style="color:{{item.UnArticleColNameColor}};border-bottom:{{item.UnArticleColBorderBottom}} {{item.UnArticleColBorderBottomColor}} solid" >{{item.ArticleColName}} </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+    <!--------------------------------------   文章展示区  -------------------------------------->
+    <view class='selecDetail'>
+      <view class='goods rela ' wx:for='{{ArticleItems[SelectedCol]}}'>
+        <view class='' style=''>
+          <view class='flex mg10'>
+            <view class='articleHeadImg '>
+              <image src='{{item.imgUrls}}' class='wt1 ht1 border50'></image>
+            </view>
+            <view class='fz34' style='color:{{pageStyle.ArticleTitleNameColor}}'>{{item.goosName}}</view>
+            <view class='articleDate fz26' style='color:{{pageStyle.ArticleTitleTimeColor}}'>2019-12-21</view>
+          </view>
+          <view class='wt1 fz28 mg10'  style='color:{{pageStyle.ArticleTitleIntroColor}}'>电话：一句话介绍xxxx</view>
+          <view class='articleImg'>
+            <image src='{{item.imgUrls}}' class='wt1 ht1'></image>
+          </view>
+          <view class='goodsDetail flex mg10'>
+            <view class='fz28 flex'  style='color:{{pageStyle.ArticleTitleLikeColor}}'>
+              <view>点赞：999</view>
+              <view>点赞：999</view>
+              <view>点赞：999</view>
+            </view>
+          </view>
+        </view>
+        <view class='line lineMg' style='background-color:{{pageStyle.ArticleLineColor}};height:{{pageStyle.ArticleLineHeight}}'></view>
+      </view>
+    </view>
+  </view>
+</view>

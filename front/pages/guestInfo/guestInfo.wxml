@@ -1,0 +1,48 @@
+<view class=''>
+  <view class='infoItem flex info'>
+    <view class='fz26'>头像</view>
+    <view style='flex-grow: 1'>
+      <view class=' headImg'>
+        <image src='../../static/g.jpg' class='wt1 ht1'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='line'></view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>昵称</view>
+    <view class='name'>
+      <input placeholder="昵称" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>手机号码</view>
+    <view class='name'>
+      <input placeholder="手机号码" class='tcent fz34' min-height='30rpx' />
+    </view>
+  </view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>地址</view>
+    <view class='name'>
+      <input placeholder="地址" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>备注</view>
+    <view class='name'>
+      <input placeholder="备注" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='button rela '>
+
+    <button  size="{{mini}}"   bindtap="default " class='fz34' >
+      default
+    </button>
+  </view>
+
+</view>

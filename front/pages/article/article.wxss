@@ -1,0 +1,80 @@
+/* pages/select/select.wxss */
+@import "../../common.wxss";
+
+.goodsImg {
+  width: 250rpx;
+  height: 250rpx;
+  margin-right: 20rpx;
+}
+
+.goodsDetail {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #666
+}
+
+.goodsLike {
+  justify-content: space-between;
+  justify-items: center;
+  align-self: flex-end;
+  padding-right: 20rpx;
+  bottom: 0;
+}
+
+.goods {
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+  height: 460rpx;
+  padding-right: 30rpx;
+}
+
+.section {
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.select {
+  margin-top: 20rpx;
+}
+
+.selectCol {
+  line-height: 80rpx;
+  height: 80rpx;
+}
+
+scroll-view view {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.articleHeadImg {
+  width: 40rpx;
+  height: 40repx;
+}
+
+.articleImg {
+  width: 100%;
+  height: 250rpx;
+}
+
+.articleImg image {
+  border-radius: 8rpx;
+}
+
+.articleDate {
+  flex-grow: 1;
+  text-align: right;
+}
+.lineMg{
+  margin-bottom: 40rpx;
+  margin-top: 20rpx
+  
+}

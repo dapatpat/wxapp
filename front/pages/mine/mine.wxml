@@ -1,0 +1,70 @@
+<view>
+
+  <!------------------------------------- 头部区域 ------------------------------->
+  <view class='mineHead' style='background-color:{{pageStyle.MineInfoBackColor}};box-shadow:{{pageStyle.MineInfoBoxShadow}}'>
+    <view class='flex mineHeadTop'>
+      <view class='mineHeadImg'>
+        <image src='{{imgUrls[0]}}' class='wt1 ht1 border50' style='border-radius:{{pageStyle.MineInfoBorderR}}'></image>
+      </view>
+      <view class='mineName' style='color:{{pageSytle.MineInfoNameColor}}'>章飞</view>
+    </view>
+    <view class='fz30 ' style='text-align:right;padding-right:30rpx;color:{{pageStyle.MineInfoSignColor}}'>--歌就是帅，不一样的验货</view>
+  </view>
+
+
+  <!------------------------------------- 订单区 ------------------------------->
+
+  <view class='orderArea rela'>
+    <view class='order flex' bindtap='goToOrder'>
+      <view style='color:{{pageStyle.MineOrderNameColor}}'>my order</view>
+      <view class='orderAll fz28'>all older</view>
+    </view>
+    <view class='orderStatus flex'>
+      <view>
+        <view class='ordStatusImg'>
+          <image src='{{MineOrderStatus[0].MineOrderStatusUrl}}' class='wt1 ht1'></image>
+        </view>
+        <view class='fz30' style='color:{{MineOrderStatus[0].MineOrderStatusNameColor}}'>待发货</view>
+      </view>
+      <view>
+        <view class='ordStatusImg'>
+          <image src='{{MineOrderStatus[1].MineOrderStatusUrl}}' class='wt1 ht1'></image>
+        </view>
+        <view class='fz30' style='color:{{MineOrderStatus[1].MineOrderStatusNameColor}}'>已发货</view>
+      </view>
+      <view>
+        <view class='ordStatusImg'>
+          <image src='{{MineOrderStatus[2].MineOrderStatusUrl}}' class='wt1 ht1'></image>
+        </view>
+        <view class='fz30' style='color:{{MineOrderStatus[2].MineOrderStatusNameColor}}'>待收货</view>
+      </view>
+      <view>
+        <view class='ordStatusImg'>
+          <image src='{{MineOrderStatus[3].MineOrderStatusUrl}}' class='wt1 ht1'></image>
+        </view>
+        <view class='fz30' style='color:{{MineOrderStatus[3].MineOrderStatusNameColor}}'>已收货</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='flex mineHeadTop mineCol' bindtap='goToGuestInfo' style='border-bottom:{{pageStyle.MineGuesetBorederBottomColor}} solid {{pageStyle.MineGuesetBorederBottom}}'>
+    <view class='mineHeadImg'>
+      <image src='{{pageStyle.MineGuesetInfoUrl}}' class='wt1 ht1 border50'></image>
+    </view>
+    <view class='mineName' style='color:{{pageStyle.MineGuesetInfoColor}}'>我的信息</view>
+  </view>
+  <view class='flex mineHeadTop mineCol' bindtap='goToAddress' style='border-bottom:{{pageStyle.MineGuesetBorederBottomColor}} solid {{pageStyle.MineGuesetBorederBottom}}'>
+    <view class='mineHeadImg'>
+      <image src='{{pageStyle.MineGuesetAddressUrl}}' class='wt1 ht1 border50'></image>
+    </view>
+    <view class='mineName' style='color:{{pageStyle.MineGuesetAddressColor}}'>收货地址</view>
+  </view>
+  <view class='flex mineHeadTop mineCol' bindtap='goToAddress' style='border-bottom:{{pageStyle.MineGuesetBorederBottomColor}} solid {{pageStyle.MineGuesetBorederBottom}}'>
+    <view class='mineHeadImg'>
+      <image src='{{pageStyle.MineGuesetAddressUrl}}' class='wt1 ht1 border50'></image>
+    </view>
+    <view class='mineName' style='color:{{pageStyle.MineGuesetAddressColor}}'>收货地址</view>
+  </view>
+
+</view>

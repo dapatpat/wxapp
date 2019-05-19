@@ -1,0 +1,54 @@
+.flex{
+  display: flex
+}
+.wt1{
+  width: 100%
+}
+.tcent{
+  text-align: center
+}
+.flexcent{
+  align-items: center
+}
+.ht1{
+  height: 100%
+}
+.rela{
+  position: relative
+}
+.abs{
+  position: absolute
+}
+.fz28{
+  font-size: 28rpx
+}
+.fz26{
+  font-size: 26rpx
+}
+.fz30{
+  font-size: 30rpx
+}
+.fz32{
+  font-size: 32rpx;
+}
+.fz34{
+  font-size: 34rpx
+}
+.border50{
+  border-radius: 50%
+}
+.none{
+  display: none
+}
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+}
+.mg10{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx
+}
+.mgl20{
+  margin-left: 20rpx
+}

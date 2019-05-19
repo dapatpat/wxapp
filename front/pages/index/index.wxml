@@ -1,0 +1,148 @@
+<!--index.wxml-->
+<view class="top-title">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  </view>
+  <view class='rela'>
+    <view class="section input-outer abs">
+      <input placeholder="我想搜索" auto-focus class='tcent input' />
+    </view>
+
+    <!-------------------------------------------- 轮播图------------------ -->
+    <view class='wt1'>
+      <swiper autoplay='true'>
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image wt1 ht1" width="355" height="150" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <slider style='opacity:0;height:1px' bindchange="durationChange" show-value min="1000" max="10000" />
+    </view>
+  </view>
+
+
+  <!-------------------------------------------------- 栏目 ------------------------>
+
+
+  <view>
+    <view class="section tcent wt1">
+      <scroll-view scroll-x='true' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" style='white-space: nowrap; display: flex'>
+        <block wx:for="{{IndexCol}}" wx:key='{{index}}'>
+          <view bindtap='changeSelectedCol' id='{{index}}' style='background-color:{{item.IndexColBackColor}};'>
+            <image src='{{item.IndexColImgUrl}}' class=' col-img border50' style='display:block; border-radius:{{item.IndexColBorderR}};box-shadow: {{item.IndexColBoxShadow}}'></image>
+            <view class='selectCol fz30' id='{{index}}' data-selected='{{index}}' style='' style='color:{{item.IndexColNameColor}}'>{{item.IndexColName}}</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+
+
+  <!--------------------------------------------- 热销榜 -------------------------------->
+  <view>
+    <view class='flex hot'>
+      <view class='hotTop' style='color:{{pageStyle.IndexSwiperAreaTitleColor}}'>{{pageStyle.IndexSwiperAreaTitleName}}</view>
+      <view class='hotMore fz30'style='color:{{pageStyle.IndexSwiperAreaMoreColor}}'>{{pageStyle.IndexSwiperAreaMoreName}}</view>
+      <view class='hotArrow'>
+        <image src='{{pageStyle.IndexSwiperAreaMoreUrl}}' class='wt1 ht1'></image>
+      </view>
+    </view>
+    <view class="section tcent wt1">
+      <scroll-view scroll-x='true' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" style='white-space: nowrap; display: flex'>
+        <block wx:for="{{col}}" wx:key='{{index}}'>
+          <view bindtap='changeSelectedCol' id='{{index}}' style=''>
+            <image src='{{item.colUrl}}' class='hotImg' style='display:block;border-radius:{{pageStyle.IndexSwiperAreaGoodBorderR}}'></image>
+            <view class='selectCol fz30' id='{{index}}' data-selected='{{index}}' style='color:{{pageStyle.IndexSwiperAreaGoodNameColor}};width:160rpx'>{{item.colName}}</view>
+            <view class='selectCol ' id='{{index}}' data-selected='{{index}}' style='display:block;color:{{pageStyle.IndexSwiperAreaGoodPriceColor}};width:160rpx'>$:99.00</view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='line line2' style='height:{{pageStyle.IndexSplitLineHeight}};background-color:{{pageStyle.IndexSplitLineBackColor}}'></view>
+
+
+
+  <!--------------------------------------------- 商品列表 -------------------------------->
+
+
+  <view>
+    <view class='flex hot'>
+      <view class='hotTop' style='color:{{pageStyle.IndexListAreaTitleColor}}'>{{pageStyle.IndexListAreaTitleName}}</view>
+    </view>
+    <view class="section tcent wt1">
+      <view class='goods rela' bindtap='goToGoodDT'>
+        <view class=''  class='goodItem' wx:for='{{col}}' bindtap='goToGoodDT'>
+          <image src='{{imgUrls[0]}}' class='wt1' style='height:260rpx;border-radius:{{pageStyle.IndexListAreaGoodBorderR}}' mode='aspectFill' ></image>
+          <view class='goodsDetail'>
+            <view style='color:{{pageStyle.IndexListAreaGoodNameColor}}'>三毛的流浪记</view>
+            <view class='fz28' style='color:{{pageStyle.IndexListAreaGoodIntroColor}}'>简介：一句话介绍xxxx</view>
+            <view class='flex fz26' style='color:{{pageStyle.IndexListAreaGoodNatureColor}}'>
+              <view >热销</view>
+              <view>好看</view>
+              <view>吃鸡</view>
+              <view>店长推荐</view>
+            </view>
+            <view class='flex fz26' style='color:{{pageStyle.IndexListAreaGoodLikeColor}}'>
+              <view>点赞：999</view>
+              <view>收藏：999</view>
+              <view>购买：999</view>
+            </view>
+            <view style='color:{{pageStyle.IndexListAreaGoodPriceColor}}'>￥：88.20</view>
+          </view>
+        </view>
+        
+        
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--------------------------------------------- 商品详情 -------------------------------->
+  <!-- <view class='goods rela' bindtap='goToGoodDT'>
+    <view class='flex' style=''>
+      <view class='goodsImg'>
+        <image src='{{imgUrls[0]}}' class='wt1 ht1'></image>
+      </view>
+      <view class='goodsDetail'>
+        <view>三毛的流浪记</view>
+        <view class='fz28'>简介：一句话介绍xxxx</view>
+        <view class='flex fz26'>
+          <view>热销</view>
+          <view>好看</view>
+          <view >吃鸡</view>
+          <view>店长推荐</view>
+        </view>
+        <view style='color:{{DictStyleIndexGoodPriceColor}}'>￥：88.20</view>
+        <view class='fz26  goodsLike flex flexcent tcent rela abs'>
+          <view>点赞：999</view>
+          <view>点赞：999</view>
+          <view>点赞：999</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+
+</view>

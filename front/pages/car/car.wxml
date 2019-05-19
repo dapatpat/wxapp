@@ -1,0 +1,48 @@
+<view>
+  <view class='flex carItems' wx:for='{{shopItem}}'>
+    <block wx:if='{{item.isChoice}}'>
+      <view class='choiceLeft rela'>
+        <image src='{{pageStyle.CarCheckedUrl}}' class='wt1 border50 abs' bindtap='carChoice' id='{{item.ID}}'></image>
+      </view>
+    </block>
+    <block wx:else id='{{item.ID}}'>
+      <view class='choiceLeft rela'>
+        <image src='{{pageStyle.UnCarCheckedUrl}}' class='wt1 border50 abs' bindtap='carChoice' id='{{item.ID}}'></image>
+        <!-- <text bindtap='carChoice' id='{{item.ID}}'>12</text> -->
+      </view>
+    </block>
+    <view class='choiceRight'>
+      <view class='selecDetail'>
+        <view class='goods rela '>
+          <view class='flex' style=''>
+            <view class='goodsImg selectGoodImg'>
+              <image src='{{item.imgUrls}}' class='wt1 ht1' style='border-radius:{{pageStyle.CarGoodBorderR}}'></image>
+            </view>
+            <view class='goodsDetail flex'>
+              <view style='color:{{pageStyle.CarGoodNameColor}}'>三体</view>
+              <view class='fz28' style='color:{{pageStyle.CarGoodIntroColor}}'>电话：一句话介绍xxxx</view>
+              <view class='fz28' style='color:{{pageStyle.CarGoodStandardColor}}'>红色/M 码/ 包邮</view>
+              <view class='fz28 flex carCount' style='color:{{pageStyle.CarGoodNameColor}}'>
+                <view>规格 (弹出按钮)</view>
+                <view  style='color:{{pageStyle.CarGoodPriceColor}}'>￥：99.00</view>
+                <view  style='color:{{pageStyle.CarGoodCountColor}}'>数量</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-------------------------------------- 底部结算栏目 ----------------------------------------->
+  <view class='carBottom flex fz26' style='background-color:{{pageStyle.CarAllCheckedBackColor}}'>
+    <view class='carBottomImg '>
+      <image src='{{pageStyle.CarAllCheckedUrl}}' class='wt1 ht1 border50'></image>
+    </view>
+    <text>全选</text>
+    <text style='color:{{pageStyle.CarGoodPriceColor}}'>合计</text>
+    <text style='color:{{pageStyle.CarGoodPriceColor}}'>999.00</text>
+    <text style='color:{{pageStyle.CarGoodPriceColor}}'>运费</text>
+    <text style='color:{{pageStyle.CarGoodPriceColor}}'>100.00</text>
+    <text style='color:{{pageStyle.CarGoodPriceColor}}'>结算</text>
+  </view>
+</view>

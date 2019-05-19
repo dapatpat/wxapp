@@ -1,0 +1,54 @@
+<view>
+  <view class='infoItem info'>
+    <view class='fz26'>收货人</view>
+    <view class='name'>
+      <input placeholder="收货人" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>联系电话</view>
+    <view class='name'>
+      <input placeholder="联系电话" class='tcent fz34' min-height='30rpx' />
+    </view>
+  </view>
+
+  <view class="section infoItem info">
+    <view class='fz26'>地址</view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker fz34 name tcent">
+        {{region[0]}} {{region[1]}} {{region[2]}}
+      </view>
+    </picker>
+  </view>
+
+
+  <view class='infoItem info'>
+    <view class='fz26'>详细地址</view>
+    <view class='name'>
+      <input placeholder="详细地址" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='infoItem info'>
+    <view class='fz26'>备注</view>
+    <view class='name'>
+      <input placeholder="备注" class='tcent fz34' />
+    </view>
+  </view>
+
+  <view class='infoItem info '>
+    <view class='fz26'>是否默认收货地址</view>
+    <radio-group class="radio-group mg10 " style='padding-left:20rpx' bindchange="radioChange">
+      <label class="radio " wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" class=' fz34  tcent' /> {{item.value}}
+      </label>
+    </radio-group>
+  </view>
+
+  <view class='button rela '>
+    <button size="{{mini}}" bindtap="default " class='fz34'>
+      default
+    </button>
+  </view>
+</view>

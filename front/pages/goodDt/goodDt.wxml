@@ -1,0 +1,116 @@
+<view>
+  <view class='wt1'>
+    <swiper autoplay='true'>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image wt1 ht1" width="355" height="150" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <slider style='opacity:0;height:1px' bindchange="durationChange" show-value min="1000" max="10000" />
+  </view>
+
+  <view>
+    <view class='flex mgl20 mg10'>
+      <view>三体2：歌者永生</view>
+      <view class=' goodPrice'>$:99.00</view>
+    </view>
+    <view class='fz26 mgl20 mg10'>一句话简介：科幻小说的经典，好看买了不亏</view>
+    <view class='fz30 mgl20 mg10'>
+      <text>热销</text>
+      <text>限量</text>
+      <text>珍藏</text>
+    </view>
+    <view class='flex fz26 goodCount'>
+      <view class='goodLike flex'>
+        <view class='goodLikeImg'>
+          <image src='../../static/check-circle.png' class='wt1 ht1'></image>
+        </view>
+        <view>点赞：999</view>
+      </view>
+      <view class='goodLike flex'>
+        <view class='goodLikeImg'>
+          <image src='../../static/check-circle.png' class='wt1 ht1'></image>
+        </view>
+        <view>收藏：999</view>
+      </view>
+      <view class='goodLike flex'>
+        <view class='goodLikeImg'>
+          <image src='../../static/check-circle.png' class='wt1 ht1'></image>
+        </view>
+        <view>购买：999</view>
+      </view>
+
+    </view>
+  </view>
+
+  <!----------------------------------------------------- 商品详情选项卡 ------------------------->
+
+  <view class="section tcent wt1">
+    <scroll-view scroll-y='true' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" style=' white-space: nowrap; display: flex'>
+      <block wx:for="{{GoodTypeName}}" wx:key='{{index}}'>
+        <view bindtap='changeSelectedCol' id='{{index}}'>
+          <block wx:if='{{index == SelectedCol}}'>
+            <view class='selectCol ' style="color:{{DictSelectedColTextColor}}" id='{{index}}' data-selected='{{index}}'>{{item.Name}} </view>
+          </block>
+          <block wx:else>
+            <view class='selectCol ' style="color:{{DictUnSelectedColTextColor}}" id='{{index}}' data-selected='{{index}}'>{{item.Name}} </view>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+
+  <!----------------------------------------------------- 商品详情区域 ------------------------------->
+  <view>
+    <view wx:if='{{SelectedCol==0}}'>详情分页</view>
+    <view wx:if='{{SelectedCol==1}}'>规格分页</view>
+    <view wx:if='{{SelectedCol==2}}'>评论分页</view>
+  </view>
+
+
+  <!----------------------------------------------------- 商品购物车和购买按钮区域 ------------------------------->
+  <view class='flex carAndBuy wt1'>
+    <view class='car'>
+      <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="car" hover-class="other-button-hover" class='wt1 fz30'>
+        car
+      </button>
+    </view>
+    <view class='buy'>
+      <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover" class='wt1 fz30'>
+        buy
+      </button>
+    </view>
+  </view>
+
+
+  <!----------------------------------------------------- 隐藏的商品规格页面 ------------------------------->
+
+  <view class='abs standard' wx:if='{{standardShow}}'></view>
+  <view class='stands' wx:if='{{standardShow}}'>
+    <view class=' stand fz30 ' wx:for='{{GStyle}}' wx:key='{{item}}'>
+      <view class='flex standDt'>
+        <view>{{item.GStyleTypeName}}</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{item.GStyleType}}" wx:key="{{innerItem}}" wx:for-item="innerItem">
+            <radio value="{{innerItem.GStyleTypeName}}" checked="{{innerItem.checked}}" class='mgl20' /> {{innerItem.GStyleTypeValue}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class='flex carAndBuy wt1'>
+      <view class='car'>
+        <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="car" hover-class="other-button-hover" class='wt1 fz30'>
+          cancel
+        </button>
+      </view>
+      <view class='buy'>
+        <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover" class='wt1 fz30'>
+          sure
+        </button>
+      </view>
+    </view>
+  </view>
+
+</view>

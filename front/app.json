@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/select/select",
+    
+    "pages/order/order",
+    "pages/address/address",
+    "pages/guestInfo/guestInfo",
+    "pages/mine/mine",
+    "pages/goodDt/goodDt",
+    "pages/car/car",
+    "pages/article/article",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/select/select",
+        "text": "select"
+      },
+      {
+        "pagePath": "pages/article/article",
+        "text": "article"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "text": "car"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "mine"
+      }
+    ]
+  }
+}

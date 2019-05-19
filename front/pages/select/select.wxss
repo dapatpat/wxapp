@@ -1,0 +1,89 @@
+/* pages/select/select.wxss */
+@import "../../common.wxss";
+
+.goodsImg {
+  width: 250rpx;
+  height: 250rpx;
+  margin-right: 20rpx;
+}
+
+.goodsDetail {
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.goodsLike {
+  justify-content: space-between;
+  justify-items: center;
+  align-self: flex-end;
+  padding-right: 20rpx;
+  bottom: 0;
+}
+
+.goods {
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  height: 250rpx;
+}
+
+.mess {
+  width: 80%;
+  left: 10%;
+  border-radius: 50rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+
+.mess-img {
+  padding-left: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  top: 10rpx;
+}
+
+.messDt {
+  flex-grow: 1;
+  padding-left: 20rpx;
+}
+
+.messText {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.section {
+  width: 20%;
+}
+
+scroll-view {
+  height: 400rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.select {
+  margin-top: 20rpx;
+}
+
+.selectCol {
+  line-height: 80rpx;
+  height: 80rpx;
+  margin-left: 4px
+}
+
+.selecDetail {
+  flex-grow: 1;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.selectGoodImg{
+  height: 180rpx;
+  width: 150rpx;
+}

@@ -1,0 +1,47 @@
+/* pages/standard/standard.wxss */
+@import "../../common.wxss";
+
+.name {
+  padding-left: 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.info {
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+
+.headImg{
+  width: 150rpx;
+  height: 150rpx;
+  float: right
+}
+.infoItem {
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+}
+
+input {
+  min-height:60rpx;
+  
+}
+
+.line{
+  height: 8px
+}
+.button{
+  margin-top: 100rpx;
+  width: 30%;
+  left: 35%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+button{
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30px;
+  background-color: rgb(236, 181, 78);
+  color: #fff
+}

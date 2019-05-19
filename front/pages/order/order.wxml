@@ -1,0 +1,57 @@
+<view>
+  <!----------------------------------------- 商品详情区域 ------------------------------>
+  <view class='goods rela'>
+    <view class='flex' style=''>
+      <view class='goodsImg'>
+        <image src='{{imgUrls[0]}}' class='wt1 ht1'></image>
+      </view>
+      <view class='goodsDetail'>
+        <view style=' flex-direction:column; justify-content:space-between;display:flex;height:200rpx'>
+          <view>三毛的流浪记</view>
+          <view class='fz28'>简介：一句话介绍xxxx</view>
+          <view class='flex fz26'>
+            <view>热销</view>
+            <view>好看</view>
+            <view>吃鸡</view>
+            <view>店长推荐</view>
+          </view>
+          <view style='color:{{DictStyleIndexGoodPriceColor}}' class='flex'>
+            <view class='fz30'>价格：99.99</view>
+            <view class='fz30 goodNum'>数量：x3</view>
+          </view>
+        </view>
+      </view>
+      <view class='goDt flex '>
+        <view class='goDtI rela'>
+          <image src='../../static/check-circle.png' class='wt1 ht1'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <!----------------------------------------- 底部区域 ------------------------------>
+
+
+  <view class='bottomArea'>
+    <view class='flex goodCount tcent fz32'>
+      <view>共2件商品</view>
+      <view>合计：￥999.00</view>
+      <view>快递：￥10.00</view>
+    </view>
+
+    <view class='flex carAndBuy wt1'>
+      <view class='car'>
+        <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="car" hover-class="other-button-hover" class='wt1 fz30'>
+          car
+        </button>
+      </view>
+      <view class='buy'>
+        <button type="default" size="{{mini}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover" class='wt1 fz30'>
+          buy
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
