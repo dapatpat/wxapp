@@ -72,7 +72,7 @@ class Good(models.Model):
     GoodSaleTypeName = models.CharField(max_length=120, null=True)  # 商品销售类型名称
     GoodName = models.CharField(max_length=120, null=True)  # 商品名字
     GoodSubtitle = models.CharField(max_length=120, null=True)  # 商品销售名称
-    GoodCharac = models.CharField(max_length=120, null=True)  # 商品特性
+    GoodCharac = models.CharField(max_length=120, null=True)  # 商品特性e
     GoodIntroduct = models.CharField(max_length=220, null=True)  # 商品简介
     GoodOrigiPrice = models.CharField(max_length=120, null=True)  # 商品原价
     GoodSaleCount = models.IntegerField(null=True, default=0)  # 销量
