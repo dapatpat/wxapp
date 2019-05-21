@@ -222,6 +222,7 @@ class Shop(models.Model):
     ShopTel = models.CharField(max_length=120, null=True)  # 店家前台电话
     ShopPhone = models.CharField(max_length=120, null=True)  # 店家联系电话
     ShopIntroduct = models.CharField(max_length=120, null=True)  # 店家简介
+    ShopNotice = models.TextField(max_length=1000,null=True) # 店家公告
     ShopDetail = models.CharField(max_length=220, null=True)  # 店家详情
     ShopAddress = models.CharField(max_length=120, null=True)  # 店家地址
     ShopLongitude = models.CharField(max_length=120, null=True)  # 经度
@@ -229,7 +230,7 @@ class Shop(models.Model):
     ShopBusinessPermitNo = models.CharField(max_length=120, null=True)  # 经营许可证
     ShopBusinessPermitUrl = models.CharField(max_length=120, null=True)  # 经营许可证地址
     ShopHealthPermitNo = models.CharField(max_length=120, null=True)  # 卫生许可证
-    ShopHealthPermiUrl = models.CharField(max_length=120, null=True)  # 店名
+    ShopHealthPermiUrl = models.CharField(max_length=120, null=True)  #
     ShopRemark = models.CharField(max_length=120, null=True)  #
     ShopCreateTime = models.CharField(max_length=120, null=True)  #
 

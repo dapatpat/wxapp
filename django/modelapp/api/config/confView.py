@@ -16,6 +16,7 @@ def get_pageconfig(requests):
 
 @log
 def get_dict(requests):
+    '''获取字典表'''
     lsConfigDatas = list(Dict.objects.all().values())
     data = {'data': lsConfigDatas, 'code': 200}
     return JsonResponse(data)
