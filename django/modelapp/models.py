@@ -307,7 +307,6 @@ class Dict(models.Model):
     DitcTypeName = models.CharField(max_length=120, null=True)  # 字典类型名字
     DictNo = models.IntegerField(null=True)  # 状态值
     DictName = models.CharField(max_length=120, null=True)  #
-    DictValue = models.DateField(max_length=120, null=True)  #
     DictSort = models.IntegerField(null=True)  # 排序
     DictFlay = models.IntegerField(default=1, null=True)  # 1 有效
     DictCreateTime = models.DateField(null=True)  #
