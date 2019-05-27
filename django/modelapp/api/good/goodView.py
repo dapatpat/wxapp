@@ -33,6 +33,5 @@ def search_good(r):
 def good_detail(r):
     GoodID = int(r.GET.get('GoodID'))
     objGoodDetail = list(Good.objects.filter(GoodID__exact=GoodID).values())[0]
-    rs = {'Code': 200, 'Msg': '',
-          'Data': {'DataSet': objGoodDetail}}
+    rs = {'Code': 200, 'Msg': '', 'Data': {'DataSet': objGoodDetail}}
     return JsonResponse(rs, safe=False)

@@ -16,4 +16,4 @@ def get_swiper(requests):
 def shop(r):
     objShop = model_to_dict(Shop.objects.first())
     rs = {'Code': 200, 'Msg': '', 'DataSet': objShop}
-    return JsonResponse(rs,safe=False)
+    return JsonResponse(rs, safe=False)

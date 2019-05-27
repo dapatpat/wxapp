@@ -17,6 +17,8 @@
 
 // 获取轮播图(get)
 // URL: /api/swiper
+/** 完成
+ * */
 send = {}
 Response = {
     'Code': number,
@@ -50,6 +52,8 @@ Response = {
 
 // 获取首页商品列表(GET)
 // URL: /api/good
+/** 完成
+ * */
 send = {
     'PageNo': number,
     'PageSize': number,
@@ -69,6 +73,8 @@ send = {
 
 // 首页搜索框模糊查询(POST)
 // URL: /api/search_good
+/** 完成
+ * */
 send = {
     'PageNo': number,
     'PageSize': number,
@@ -89,6 +95,8 @@ send = {
 
 // 店家信息(GET)
 // URL: /api/shop
+/** 完成
+ * */
 send = {},
     Response = {
         'Code': number,
@@ -135,6 +143,8 @@ send = {
 
 // 资讯文章(首次加载, 不同咨询文章5个)(GET)
 // URL: /api/init_article
+/** 完成
+ * */
 send = {
     'PageNo': number,
     'PageSize': number,
@@ -155,6 +165,8 @@ send = {
 
 // 获取用户资料(GET)
 // URL: /api/guestinfo
+/** 完成
+ * */
 send = {},
     Response = {
         'Code': number,
@@ -171,7 +183,7 @@ send = {},
 send = {
     'PageNo': number,
     'PageSize': number,
-    'OrderType': number     // 默认0为全查询
+    'OStatusType': number     // 默认0为全查询
 },
     Response = {
         'Code': number,

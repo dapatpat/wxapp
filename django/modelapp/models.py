@@ -29,7 +29,7 @@ class Article(models.Model):
     ArticleIntroduc = models.CharField(max_length=220, null=True)  # 文章简介
     ArticleRemark = models.CharField(max_length=220, null=True)  # 备注
     ArticleType = models.IntegerField(null=True)  # 文章分类
-    ArticleTypeName = models.DateField(max_length=120, null=True)  # 文章分类名称
+    ArticleTypeName = models.CharField(max_length=120, null=True)  # 文章分类名称
     ArticleCreateTime = models.DateField(null=True)
 
     class Meta:
@@ -264,6 +264,7 @@ class Order(models.Model):
     OrderDeliType = models.IntegerField(default=0, null=True)  # 快递方式 0自提，1快递
     OrderDeliCost = models.CharField(max_length=120, null=True)  # 快递费用
     OrderInCar = models.IntegerField(default=1, null=True)  # 是否购物车订单信息
+    Order_GuestID = models.ForeignKey(Guest, null=True, on_delete=models.SET_NULL)
 
     class Meta:
         db_table = 'Order'
