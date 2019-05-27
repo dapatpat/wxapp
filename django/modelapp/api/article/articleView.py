@@ -12,7 +12,7 @@ def init_article(r):
     if ArticleType != 0:
         RowCount = Article.objects.filter(ArticleType__exact=ArticleType).count()
         lsArticle = list(
-            Article.objects.filter(ArticleType__exact=ArticleType)[(PageNo - 1) * PageSize:PageSize].values())
+            Article.objects.filter(ArticleType__exact=ArticleType)[(PageNo - 1) * PageSize:(PageNo - 1) * PageSize+PageSize].values())
     else:
         RowCount = 0
         lsArticle = []
@@ -20,7 +20,7 @@ def init_article(r):
 
         for ojbArtType in lsArtType:
             lsArticleWithType = list(
-                Article.objects.filter(ArticleType__exact=ojbArtType['ArticleType'])[(PageNo - 1) * PageSize:PageSize].values())
+                Article.objects.filter(ArticleType__exact=ojbArtType['ArticleType'])[(PageNo - 1) * PageSize:(PageNo - 1) * PageSize+PageSize].values())
             lsArticle.append(lsArticleWithType)
     rs = {'Code': 200, 'Msg': '',
           'Data': {'DataSet': lsArticle, 'RowCount': RowCount, 'PageNo': PageNo, 'PageSize': PageSize}}

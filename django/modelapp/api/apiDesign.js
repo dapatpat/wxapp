@@ -123,6 +123,8 @@ send = {},
 
 // 获取销售类型不同的商品(首次加载, 不同销售类型的商品各加载15个)(GET)
 // URL: /api/init_sale_type
+/** 完成
+ * */
 send = {
     'PageNo': number,
     'PageSize': number,
@@ -180,6 +182,8 @@ send = {},
 
 // 订单列表(GET)
 // URL: /api/order
+/** 完成
+ * */
 send = {
     'PageNo': number,
     'PageSize': number,
@@ -197,6 +201,7 @@ send = {
 
 // 个人信息修改(POST)
 // URL: /api/change_guest_info
+
 send = {
     'GuestSex': number,
     'GuestName': number,
@@ -212,6 +217,8 @@ send = {
 
 // 获取快递地址(GET)
 // URL: /api/rece_address
+/** 完成
+ * */
 send = {},
     Response = {
         'Code': number,
