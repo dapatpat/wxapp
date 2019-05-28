@@ -1,5 +1,4 @@
 def log(func):
-
     def wrapper(*args, **kwargs):
         print('-------------------------------')
         print(*kwargs)

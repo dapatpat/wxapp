@@ -2,8 +2,8 @@ from django.db import models
 
 
 class PageConfig(models.Model):
-    ConfigID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
-    ConfigDataType = models.IntegerField(null=True,verbose_name='数据分类')  # 数据分类  (如 分类：1 数组 )
+    ConfigID = models.AutoField(primary_key=True, unique=True, auto_created=True)
+    ConfigDataType = models.IntegerField(null=True, verbose_name='数据分类')  # 数据分类  (如 分类：1 数组 )
     ConfigType = models.IntegerField(null=True)  # 字典分类  (如 分类：1 )
     ConfigTypeNmae = models.CharField(max_length=120, null=True)  # 字典分类的名字  (如 分类名字：首页 )
     ConfigKeyNo = models.IntegerField(null=True)  # KeyID：1
@@ -19,7 +19,7 @@ class PageConfig(models.Model):
 
 
 class Article(models.Model):
-    ArticleID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    ArticleID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     ArticleName = models.CharField(max_length=120, null=True)  # 文章名
     ArticleTime = models.DateField(null=True)  # 文章上传日期
     ArticleLikeCount = models.IntegerField(null=True, default=0)  # 文章点赞数
@@ -34,10 +34,10 @@ class Article(models.Model):
 
     class Meta:
         db_table = 'Article'
-        
+
 
 class Province(models.Model):
-    ProvinceID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    ProvinceID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     ProvinceName = models.CharField(max_length=120, null=True)  # 省份名
 
     class Meta:
@@ -45,7 +45,7 @@ class Province(models.Model):
 
 
 class City(models.Model):
-    CityID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    CityID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     CityName = models.CharField(max_length=120, null=True)  # 城市名
     ProvinceID = models.ForeignKey(Province, null=True, on_delete=models.SET_NULL)  # 省份ID
     IsCapitalCity = models.IntegerField(null=True, default=0)  # 是否省会城市 0：否 1：是
@@ -55,7 +55,7 @@ class City(models.Model):
 
 
 class District(models.Model):
-    DistrictID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    DistrictID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     DistrictName = models.CharField(max_length=120, null=True)  # 城市名
     ProvinceID = models.ForeignKey(Province, null=True, on_delete=models.SET_NULL)  # 省份ID
     CityID = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)  # 市ID
@@ -65,7 +65,7 @@ class District(models.Model):
 
 
 class Good(models.Model):
-    GoodID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GoodID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GoodType = models.IntegerField(null=True)  # 商品分类
     GoodTypeName = models.CharField(max_length=120, null=True)  # 商品分类名称
     GoodSaleType = models.IntegerField(null=True)  # 商品销售类型
@@ -91,7 +91,7 @@ class Good(models.Model):
 
 
 class Say(models.Model):
-    SayID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    SayID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     SayType = models.IntegerField(default=0, null=True)  # 评论类型 0:默认好评 1差评 2中 三差评
     SayTypeName = models.CharField(max_length=12, null=True)  # 评论类型 0:默认好评 1差评 2中 三差评
     SayDetail = models.TextField(max_length=1002, null=True)  # 评论详情
@@ -104,7 +104,7 @@ class Say(models.Model):
 
 
 class GoodUrl(models.Model):
-    GUrlID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GUrlID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GUrlUrl = models.CharField(max_length=220, null=True)  # 图片地址
     GUrlMain = models.IntegerField(default=0, null=True)  # 是否主图 1:是，0否
     GUrlRemark = models.CharField(max_length=112, null=True)  # 备注
@@ -116,7 +116,7 @@ class GoodUrl(models.Model):
 
 
 class GoodStyle(models.Model):
-    GStyleID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GStyleID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GStyleType = models.IntegerField(null=True)  # 款式类型
     GStyleTypeName = models.CharField(max_length=112, null=True)  # 款式类型名字
     GStyleDetail = models.CharField(max_length=112, null=True)  # 款式详情
@@ -131,7 +131,7 @@ class GoodStyle(models.Model):
 
 
 class GoodGoodStyleRela(models.Model):
-    GGSGoodGStyleID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GGSGoodGStyleID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GGSGoodID = models.ForeignKey(Good, on_delete=models.DO_NOTHING, null=True)  # 商品ID外键
     GGSGStyleID = models.ForeignKey(GoodStyle, on_delete=models.DO_NOTHING, null=True)  # 款式ID外键
     GGSRemark = models.CharField(max_length=112, null=True)  # 备注
@@ -142,7 +142,7 @@ class GoodGoodStyleRela(models.Model):
 
 
 class Guest(models.Model):
-    GuestID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GuestID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GuestType = models.IntegerField(null=True)  # 客人类型
     GuestTypeName = models.CharField(null=True, max_length=40)  # 客人分类名称
     GuestDocType = models.IntegerField(null=True)  # 证件号码类型
@@ -166,7 +166,7 @@ class Guest(models.Model):
 
 
 class Vip(models.Model):
-    VipID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    VipID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     VipType = models.IntegerField(default=0, null=True)  # 会员等级
     VipiTypeName = models.CharField(max_length=120, null=True)  # 会员等级
     VipPoint = models.IntegerField(default=0, null=True)  # 会员等级分值
@@ -179,10 +179,16 @@ class Vip(models.Model):
 
 
 class GuestReceAddress(models.Model):
-    GReceID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    GReceID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GReceAddress = models.CharField(max_length=222, null=True)  # 快递地址
     GReceTel = models.CharField(max_length=220, null=True)  # 收快递电话
     GReceIsDefult = models.IntegerField(default=0, null=True)  # 是否默认 0 否
+    GReceCityID = models.IntegerField(null=True)  # 城市ID
+    GReceCityName = models.CharField(max_length=220, null=True)  # 城市名字
+    GReceProvinceID = models.IntegerField(null=True)  # 省ID
+    GReceProvinceName = models.CharField(max_length=220, null=True)  #
+    GReceDistrictID = models.IntegerField(null=True)  # 区ID
+    GReceDistrictName = models.CharField(max_length=220, null=True)  #
     GReceIsFlat = models.IntegerField(default=1, null=True)  # 是否有效  1 是
     GReceRemark = models.CharField(max_length=220, null=True)  #
     GReceCreateTime = models.DateField(null=True)  #
@@ -193,7 +199,7 @@ class GuestReceAddress(models.Model):
 
 
 class User(models.Model):
-    UserID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    UserID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     UserName = models.CharField(max_length=222, null=True)  # 用户名
     UsePassword = models.CharField(max_length=220, null=True)  # 密码
     UseTel = models.CharField(max_length=220, null=True)  # 联系方式
@@ -211,7 +217,7 @@ class User(models.Model):
 
 
 class Shop(models.Model):
-    ShopID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    ShopID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     ShopName = models.CharField(max_length=120, null=True)  # 店名
     ShopHeadUrl = models.CharField(max_length=120, null=True)  # 店铺头像
     ShopResponName = models.CharField(max_length=120, null=True)  # 店家负责人
@@ -222,7 +228,7 @@ class Shop(models.Model):
     ShopTel = models.CharField(max_length=120, null=True)  # 店家前台电话
     ShopPhone = models.CharField(max_length=120, null=True)  # 店家联系电话
     ShopIntroduct = models.CharField(max_length=120, null=True)  # 店家简介
-    ShopNotice = models.TextField(max_length=1000,null=True) # 店家公告
+    ShopNotice = models.TextField(max_length=1000, null=True)  # 店家公告
     ShopDetail = models.CharField(max_length=220, null=True)  # 店家详情
     ShopAddress = models.CharField(max_length=120, null=True)  # 店家地址
     ShopLongitude = models.CharField(max_length=120, null=True)  # 经度
@@ -239,7 +245,7 @@ class Shop(models.Model):
 
 
 class Swiper(models.Model):
-    SwiperID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    SwiperID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     SwiperUrl = models.CharField(max_length=120, null=True)  # 图片地址
     SwiperType = models.IntegerField(null=True)  # 轮播类型
     SwiperTypeName = models.CharField(max_length=120, null=True)  # 省份名
@@ -251,7 +257,7 @@ class Swiper(models.Model):
 
 
 class Order(models.Model):
-    OrderID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    OrderID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     OrderCode = models.CharField(max_length=120, null=True)  # 订单号
     OrderType = models.IntegerField(null=True)  # 订单类型
     OrderTypeName = models.CharField(max_length=120, null=True)  # 订单类型名称
@@ -270,8 +276,23 @@ class Order(models.Model):
         db_table = 'Order'
 
 
+class OrderStatus(models.Model):
+    OStatusID = models.AutoField(primary_key=True, unique=True, auto_created=True)
+    OStatusType = models.IntegerField(null=True)  # 状态类型
+    OStatusTypeName = models.CharField(max_length=120, null=True)  # 商品数量
+    OStatusValue = models.CharField(max_length=120, null=True)  # 状态值
+    OStatusRemark = models.CharField(max_length=120, null=True)  #
+    OStatusCreatTime = models.DateField(max_length=120, null=True)  #
+    OstatusDeliTime = models.DateField(max_length=120, null=True)  # 发货时间
+    OstatusReceTime = models.DateField(max_length=120, null=True)  # 收货时间
+    OStatus_OrderID = models.ForeignKey(Order, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        db_table = 'OrderStatus'
+
+
 class OrderDetail(models.Model):
-    ODetailID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    ODetailID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     ODetailCode = models.CharField(max_length=120, null=True)  # 唯一订单号
     ODetailGoodCount = models.IntegerField(null=True)  # 商品数量
     ODetailOriginPrice = models.CharField(max_length=120, null=True)  # 商品原价
@@ -288,23 +309,8 @@ class OrderDetail(models.Model):
         db_table = 'OrderDetail'
 
 
-class OrderStatus(models.Model):
-    OStatusID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
-    OStatusType = models.IntegerField(null=True)  # 状态类型
-    OStatusTypeName = models.CharField(max_length=120, null=True)  # 商品数量
-    OStatusValue = models.CharField(max_length=120, null=True)  # 状态值
-    OStatusRemark = models.CharField(max_length=120, null=True)  #
-    OStatusCreatTime = models.DateField(max_length=120, null=True)  #
-    OstatusDeliTime = models.DateField(max_length=120, null=True)  # 发货时间
-    OstatusReceTime = models.DateField(max_length=120, null=True)  # 收货时间
-    OStatus_OrderID = models.ForeignKey(Order, null=True, on_delete=models.SET_NULL)
-
-    class Meta:
-        db_table = 'OrderStatus'
-
-
 class Dict(models.Model):
-    DictID = models.IntegerField(primary_key=True, unique=True, auto_created=True)
+    DictID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     DitcType = models.IntegerField(null=True)  # 字典类型
     DitcTypeName = models.CharField(max_length=120, null=True)  # 字典类型名字
     DictNo = models.IntegerField(null=True)  # 状态值
@@ -315,5 +321,3 @@ class Dict(models.Model):
 
     class Meta:
         db_table = 'Dict'
-
-

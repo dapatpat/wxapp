@@ -199,19 +199,21 @@ send = {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// 个人信息修改(POST)
+// 个人信息修改(POST)（修改传入GuestID，新增GuestID传入空字符串）
 // URL: /api/change_guest_info
-
+/** 完成
+ * */
 send = {
+    'GuestID': GuestID,
     'GuestSex': number,
     'GuestName': number,
     'GuestPhotoURL': string,
     'GuestRemark': string
-},
-    Response = {
-        'Code': number,
-        'Msg': string,
-    }
+}
+Response = {
+    'Code': number,
+    'Msg': string,
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -219,48 +221,60 @@ send = {
 // URL: /api/rece_address
 /** 完成
  * */
-send = {},
-    Response = {
-        'Code': number,
-        'Msg': string,
-        'Data': {
-            'DataSet': [{}]
-        }
+send = {}
+Response = {
+    'Code': number,
+    'Msg': string,
+    'Data': {
+        'DataSet': [{}]
     }
+}
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 删除快递地址(GET)
 // URL: /api/del_rece_address
+/** 完成
+ * */
 send = {
-    'GReceID': number,
+    'Index': number,
+    'GuestID': number,
 },
     Response = {
         'Code': number,
         'Msg': string,
     }
 
-//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 新增快递地址(POST)
-// URL: /api/add_rece_address
+// URL: /api/change_rece_address   (Index = -99 为新增，其他情况待修改的地址index)
+/** 完成
+ * */
 send = {
+    'Index': number,
+    'GuestID': number,
     'GReceAddress': string,
     'GReceTel': string,
     'GReceIsDefult': number,
     'GReceRemark': string,
+    'GReceDistrictID': string,
+    'GReceCityID': string,
+    'GReceProvinceID': string,
 },
     Response = {
         'Code': number,
         'Msg': string,
-    }
+    },
 
-// 新增快递地址(POST)
-// URL: /api/change_rece_address
-send = {
-    'GReceID': number,
-    'GReceAddress': string,
-    'GReceTel': string,
-    'GReceIsDefult': number,
-    'GReceRemark': string,
-},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 修改为默认地址(GET)
+// URL: /api/defult_rece_address   (设置默认地址)
+    /** 完成
+     * */
+    send = {
+        'Index': number,
+        'GuestID': number,
+        'GReceIsDefult': number,
+    },
     Response = {
         'Code': number,
         'Msg': string,

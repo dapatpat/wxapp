@@ -21,5 +21,8 @@ urlpatterns = [
     path('guest_info', guestView.guest_info),  #客人信息
     path('order', orderView.order),  #订单列表
     path('init_sale_type', goodView.init_sale_type),  #不同销售类型商品初始化和查询
-    path('add_rece_address', guestView.add_rece_address),  #不同销售类型商品初始化和查询
+    path('get_rece_address', guestView.get_rece_address),  #不同销售类型商品初始化和查询
+    path('change_guest_info', guestView.change_guest_info),  #新增或更改个人信息
+    path('change_rece_address', guestView.change_rece_address),  #新增或修改快递地址
+    path('defult_rece_address', guestView.defult_rece_address),  #修改默认快递收货地址
 ]

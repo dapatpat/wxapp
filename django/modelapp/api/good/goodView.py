@@ -41,8 +41,14 @@ def search_good(r):
 # test aip =http://127.0.0.1:8000/api/good_detail?GoodID=1
 def good_detail(r):
     GoodID = int(r.GET.get('GoodID'))
-    objGoodDetail = list(Good.objects.filter(GoodID__exact=GoodID).values())[0]
-    rs = {'Code': 200, 'Msg': '', 'Data': {'DataSet': objGoodDetail}}
+    reObjGood = {}
+
+    objGoodDetail = Good.objects.get(GoodID=GoodID)
+    reObjGood['GoodDetail'] = model_to_dict(objGoodDetail)
+    reObjGood['GoodUrl'] = list(objGoodDetail.goodurl_set.all().values())  # 商品轮播图图片
+    reObjGood['Say'] = list(objGoodDetail.say_set.all().values())  # 评论
+    reObjGood['GoodStyle'] = list(objGoodDetail.goodstyle_set.all().values())  # 款式
+    rs = {'Code': 200, 'Msg': '', 'Data': {'DataSet': reObjGood}}
     return JsonResponse(rs, safe=False)
 
 
@@ -54,14 +60,14 @@ def init_sale_type(r):
     if GoodSaleType != 0:
         RowCount = Good.objects.filter(GoodSaleType=GoodSaleType).count()
         reLsGood = Good.objects.filter(GoodSaleType=GoodSaleType)[
-            (PageNo - 1) * PageSize:(PageNo - 1) * PageSize + PageSize].all()
-    else:   #全查询
+                   (PageNo - 1) * PageSize:(PageNo - 1) * PageSize + PageSize].all()
+    else:  # 全查询
         RowCount = 0
         reLsGood = []
         lsGood = list(Good.objects.values('GoodSaleType').annotate(Count=Count('GoodSaleType')).order_by())
         for objGood in lsGood:
             lsGoodWithType = Good.objects.filter(GoodSaleType=objGood['GoodSaleType'])[
-                (PageNo - 1) * PageSize:(PageNo - 1) * PageSize + PageSize]
+                             (PageNo - 1) * PageSize:(PageNo - 1) * PageSize + PageSize]
             reLsGood.append(lsGoodWithType)
 
     # 外联表，添加评论、轮播图等详细信息
@@ -74,8 +80,8 @@ def init_sale_type(r):
             reObjGoods['GoodDetail'] = model_to_dict(objGood)  # 商品详细信息
             reObjGoods['GoodStyle'] = list(objGood.goodstyle_set.all().values())  # 商品评论
             reLsGoods.append(reObjGoods)
-        else:    #全查询
-            a =[]
+        else:  # 全查询
+            a = []
             for objGoodDetail in objGood:
                 reObjGoods = {}
                 reObjGoods['Say'] = list(objGoodDetail.say_set.all().values())  # 商品评论
