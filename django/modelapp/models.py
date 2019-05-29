@@ -69,6 +69,7 @@ class Good(models.Model):
     GoodType = models.IntegerField(null=True)  # 商品分类
     GoodTypeName = models.CharField(max_length=120, null=True)  # 商品分类名称
     GoodSaleType = models.IntegerField(null=True)  # 商品销售类型
+    GoodHotSale = models.IntegerField(default=0,null=True)  # 热销类型  1为热销类型
     GoodSaleTypeName = models.CharField(max_length=120, null=True)  # 商品销售类型名称
     GoodName = models.CharField(max_length=120, null=True)  # 商品名字
     GoodSubtitle = models.CharField(max_length=120, null=True)  # 商品销售名称

@@ -25,4 +25,5 @@ urlpatterns = [
     path('change_guest_info', guestView.change_guest_info),  #新增或更改个人信息
     path('change_rece_address', guestView.change_rece_address),  #新增或修改快递地址
     path('defult_rece_address', guestView.defult_rece_address),  #修改默认快递收货地址
+    path('make_order', orderView.make_order),  #生成订单
 ]

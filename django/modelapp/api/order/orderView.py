@@ -1,9 +1,11 @@
 from django.http import HttpResponse, JsonResponse
 from modelapp.models import Guest
 from modelapp.models import OrderDetail
-from modelapp.models import Order, OrderStatus
+from modelapp.models import Order, OrderStatus, Good
 from django.forms.models import model_to_dict
 from django.db.models import F, Q
+import json
+from django.db import transaction
 
 
 # http://127.0.0.1:8000/api/order?GuestID=1&OStatusType=0&PageNo=1&PageSize=10
@@ -12,7 +14,7 @@ def order(r):
     OStatusType = int(r.GET.get('OStatusType'))  # 0 为全查询
     PageNo = int(r.GET.get('PageNo'))
     PageSize = int(r.GET.get('PageSize'))
-    if OStatusType != 0:                                                    # 反向查询
+    if OStatusType != 0:  # 反向查询
         lsOrder = Order.objects.filter(Q(Order_GuestID=GuestID) & Q(orderstatus__OStatusType=OStatusType))  # 获取该用户下所有订单
     else:
         lsOrder = Order.objects.filter(Order_GuestID=GuestID)  # 获取该用户下所有订单
@@ -33,7 +35,7 @@ def order(r):
         rsObjOrder['OrderDetail'] = reLsOrderDetail
 
         # 获取每张订单下经历过的订单状态状态
-        if OStatusType == 0:                                # 全部订单状态查询  正向查询
+        if OStatusType == 0:  # 全部订单状态查询  正向查询
             lsOrderStatus = OrderStatus.objects.filter(OStatus_OrderID__OrderID=objOrder.OrderID)
         else:
             lsOrderStatus = OrderStatus.objects.filter(
@@ -47,3 +49,23 @@ def order(r):
     rs = {'Code': 200, 'Msg': '',
           'Data': {'DataSet': rsLsOrder, 'PageNo': PageNo, 'PageSize': PageSize, 'RowCount': RowCount}}
     return JsonResponse(rs, safe=False)
+
+
+# 生成订单
+# http://127.0.0.1:8000/api/make_order
+@transaction.atomic
+def make_order(r):
+    GuestID = int(r.POST.get('GuestID'))
+    OrderType = int(r.POST.get('OrderType'))
+    Goods = r.POST.get('Goods')
+    Goods = json.loads(json.dumps(eval(Goods)))
+    '''设置保存点用于事务管理'''
+    sid1 = transaction.savepoint()
+    for objGood in Goods:
+        # 查询商品详细信息和库存情况
+        objGoodDetail = Good.objects.select_for_update().get(GoodID=objGood['GoodID'])
+        if int(objGoodDetail.GoodInstockCount) < objGood['ODetailGoodCount']:
+            transaction.savepoint_rollback(sid1)
+        else:
+            print(2)
+    return JsonResponse({}, safe=False)

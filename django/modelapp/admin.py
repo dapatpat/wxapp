@@ -1,13 +1,16 @@
 from django.contrib import admin
 from modelapp.models import *
+
+
 # Register your models here.
 
 class MyConfig(admin.ModelAdmin):
     # 需要显示的字段信息
-    list_display = ("ConfigID","ConfigDataType","ConfigType","ConfigTypeNmae","ConfigKeyNo",
-                            "ConfigKeyName","ConfigKeyValue","ConfigFlag","ConfigCreatTime")
+    list_display = ("ConfigID", "ConfigDataType", "ConfigType", "ConfigTypeNmae", "ConfigKeyNo",
+                    "ConfigKeyName", "ConfigKeyValue", "ConfigFlag", "ConfigCreatTime")
 
-# admin.site.register(article)
+
+admin.site.register(Article)
 # admin.site.register(auth_group)
 # admin.site.register(auth_group_permissions)
 # admin.site.register(auth_permission)
