@@ -6,9 +6,10 @@ from django.forms.models import model_to_dict
 import json
 
 
-def get_swiper(requests):
+def get_swiper(r):
     '''获取轮播图信息'''
-    lsSwiper = list(Swiper.objects.all().values())
+    SwiperType = int(r.GET.get('SwiperType'))
+    lsSwiper = list(Swiper.objects.filter(SwiperType=SwiperType).all().values())
     rsData = {"data": lsSwiper}
     return JsonResponse(rsData, safe=False)
 

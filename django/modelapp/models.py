@@ -67,9 +67,10 @@ class District(models.Model):
 class Good(models.Model):
     GoodID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     GoodType = models.IntegerField(null=True)  # 商品分类
+    GoodMainUrl = models.CharField(null=True, max_length=1200)  # 商品主图片
     GoodTypeName = models.CharField(max_length=120, null=True)  # 商品分类名称
     GoodSaleType = models.IntegerField(null=True)  # 商品销售类型
-    GoodHotSale = models.IntegerField(default=0,null=True)  # 热销类型  1为热销类型
+    GoodHotSale = models.IntegerField(default=0, null=True)  # 热销类型
     GoodSaleTypeName = models.CharField(max_length=120, null=True)  # 商品销售类型名称
     GoodName = models.CharField(max_length=120, null=True)  # 商品名字
     GoodSubtitle = models.CharField(max_length=120, null=True)  # 商品销售名称
@@ -248,7 +249,7 @@ class Shop(models.Model):
 class Swiper(models.Model):
     SwiperID = models.AutoField(primary_key=True, unique=True, auto_created=True)
     SwiperUrl = models.CharField(max_length=120, null=True)  # 图片地址
-    SwiperType = models.IntegerField(null=True)  # 轮播类型
+    SwiperType = models.IntegerField(null=True)  # 轮播类型  1.主页轮播图
     SwiperTypeName = models.CharField(max_length=120, null=True)  # 省份名
     SwiperIsFlat = models.IntegerField(default=1, null=True)  # 是否有效 1 ：有效 0 无效
     SwiperCreateTime = models.DateField(null=True)  #
@@ -318,6 +319,7 @@ class Dict(models.Model):
     DictName = models.CharField(max_length=120, null=True)  #
     DictSort = models.IntegerField(null=True)  # 排序
     DictFlay = models.IntegerField(default=1, null=True)  # 1 有效
+    DictRemark = models.CharField(null=True, max_length=1000)
     DictCreateTime = models.DateField(null=True)  #
 
     class Meta:

@@ -93,3 +93,17 @@ def init_sale_type(r):
     rs = {'Code': 200, 'Msg': '',
           'Data': {'DataSet': reLsGoods, 'RowCount': RowCount, 'PageNo': PageNo, 'PageSize': PageSize}}
     return JsonResponse(rs, safe=False)
+
+
+# 热销产品
+# http://127.0.0.1:8000/api/hot_sale?PageNo=1&PageSize=4
+def hot_sale(r):
+    PageNo = int(r.GET.get('PageNo'))
+    PageSize = int(r.GET.get('PageSize'))
+    RowCount = Good.objects.filter(GoodHotSale=1).count()
+    lsHotSale = list(
+        Good.objects.filter(GoodHotSale=1)[(PageNo - 1) * PageSize:(PageNo - 1) * PageSize + PageSize].all().values())
+    rs = {'Code': 200, 'Msg': '',
+          'Data': {'DataSet': lsHotSale, 'RowCount': RowCount, 'PageNo': PageNo, 'PageSize': PageSize}}
+    return JsonResponse(rs, safe=False)
+
